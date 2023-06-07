@@ -43,6 +43,16 @@ class ViewController: UIViewController {
         let y = randomNumbers(firstNum: -0.3, secondNum: 0.3)
         let z = randomNumbers(firstNum: -0.3, secondNum: 0.3)
         
+        // Path Example
+//        let path = UIBezierPath()
+//        path.move(to: CGPoint(x: 0, y: 0))
+//        path.addLine(to: CGPoint(x: 0, y: 0.2))
+//        path.addLine(to: CGPoint(x: 0.2, y: 0.3))
+//        path.addLine(to: CGPoint(x: 0.4, y: 0.2))
+//        path.addLine(to: CGPoint(x: 0.4, y: 0))
+//        let shape = SCNShape(path: path, extrusionDepth: 0.2)
+//        node.geometry = shape
+        
         // Capsule Example
         //node.geometry = SCNCapsule(capRadius: 0.1, height: 0.3)
         
@@ -56,20 +66,25 @@ class ViewController: UIViewController {
         //node.geometry = SCNTorus(ringRadius: 0.3, pipeRadius: 0.1)
         
         // Plane Example
-        node.geometry = SCNPlane(width: 0.2, height: 0.2)
+        //node.geometry = SCNPlane(width: 0.2, height: 0.2)
+        
+        // Pyramid Example
+        // node.geometry = SCNPyramid(width: 0.1, height: 0.1, length: 0.1)
+        
+        
         
         // Quad Example
-        // node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.03)
+        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.03)
         
         // Set materials and colors
         node.geometry?.firstMaterial?.specular.contents = UIColor.white
         node.geometry?.firstMaterial?.diffuse.contents = UIColor.green
         
         // Randomize position
-        // node.position = SCNVector3(x, y, z)
+        node.position = SCNVector3(x, y, z)
         
         // Static Position
-        node.position = SCNVector3(0, 0, -0.3)
+        // node.position = SCNVector3(0, 0, -0.3)
         
         // Append the node to the rootnode of the scene
         self.sceneView.scene.rootNode.addChildNode(node)
